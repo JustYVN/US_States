@@ -11,7 +11,6 @@ const App = () => {
     setState(inputEl.current.value);
   };
 
-  console.log(state);
   const data = useStatesData(state);
 
   return (
