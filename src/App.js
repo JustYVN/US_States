@@ -4,14 +4,15 @@ import Result from "./components/Result";
 import useStatesData from "./hooks/useStatesData";
 
 const App = () => {
-  const [state, setState] = useState();
+  const [state, setState] = useState("undefined");
   const inputEl = useRef();
 
   const handleUserSearch = () => {
     setState(inputEl.current.value);
   };
 
-  const data = useStatesData();
+  console.log(state);
+  const data = useStatesData(state);
 
   return (
     <div>

@@ -11,12 +11,12 @@ function toTitleCase(str) {
     .join(" ");
 }
 
-const useStateData = (stateName) => {
-  stateName = stateName.toTitleCase();
+const useStatesData = (stateName) => {
+  stateName = toTitleCase(stateName);
 
   const [data, setData] = useState(undefined);
 
-  const found = statesData.find((e) => e.statename === stateName);
+  const found = statesData.find((e) => e.state === stateName);
 
   useEffect(() => {
     setData(found);
@@ -25,4 +25,4 @@ const useStateData = (stateName) => {
   return data;
 };
 
-export default useStateData;
+export default useStatesData;
