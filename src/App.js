@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Map from "./components/Map";
 import Result from "./components/Result";
+import useStatesData from "./hooks/useStatesData";
 
 const App = () => {
   const [state, setState] = useState();
@@ -10,20 +11,7 @@ const App = () => {
     setState(inputEl.current.value);
   };
 
-  const data = {
-    state: "NY",
-    population: "1",
-    biggestCity: "NYC",
-    capital: "ALBANY",
-    governor: "ERIC ADAMS",
-    senators: "IDK",
-    electoralVotes: "ALOT",
-    nickName: "SOMETHING",
-    dateAdmitted: "SOMEDAY",
-    nthState: "#1",
-    stateImage:
-      "https://media.istockphoto.com/vectors/detailed-map-of-new-york-state-vector-id944566544",
-  };
+  const data = useStatesData();
 
   return (
     <div>
