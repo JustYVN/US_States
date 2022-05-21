@@ -1,12 +1,33 @@
 import React, { useRef, useState, useEffect } from "react";
 import Map from "./components/Map";
+import Result from "./components/Result";
 
 const App = () => {
+  const [state, setState] = useState();
   const inputEl = useRef();
-  const data = undefined;
+
+  const handleUserSearch = () => {
+    setState(inputEl.current.value);
+  };
+
+  const data = {
+    state: "NY",
+    population: "1",
+    biggestCity: "NYC",
+    capital: "ALBANY",
+    governor: "ERIC ADAMS",
+    senators: "IDK",
+    electoralVotes: "ALOT",
+    nickName: "SOMETHING",
+    dateAdmitted: "SOMEDAY",
+    nthState: "#1",
+    stateImage:
+      "https://media.istockphoto.com/vectors/detailed-map-of-new-york-state-vector-id944566544",
+  };
 
   return (
     <div>
+      {/* Search bar */}
       <div className="flex justify-center">
         <div className="mb-3 xl:w-96 mt-20">
           <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
@@ -22,6 +43,7 @@ const App = () => {
               className="btn flex px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out items-center"
               type="button"
               id="button-addon2"
+              onClick={handleUserSearch}
             >
               <svg
                 aria-hidden="true"
@@ -42,7 +64,8 @@ const App = () => {
           </div>
         </div>
       </div>
-      <Map />
+      {/* End of Search bar */}
+      {data === undefined ? <Map /> : <Result {...data} />}
     </div>
   );
 };
