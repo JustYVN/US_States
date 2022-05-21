@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Map from "./components/Map";
 import Result from "./components/Result";
 import useStatesData from "./hooks/useStatesData";
